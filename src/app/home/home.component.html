@@ -1,0 +1,57 @@
+<div class="container container-fluid gx-0">
+    <div class="row jumbotron justify-content-center">
+        <div class="container-fluid jumbo-container">
+            <div class="row justify-content-center mt-4" style="text-align:center;">
+                <span class="col-sm-3 app-title">Directory Viewer</span>
+            </div>
+            <div class="row justify-content-center mb-5 mt-5">
+                <div class="col-sm-3 path-input-field">
+                  <div class="input-group">
+                    <input type="text" class="form-control" [(ngModel)]="path_input" placeholder="Enter Absolute Path..." aria-describedby="basic-addon2">
+                    <div class="input-group-append">
+                      <button class="btn btn-dark" type="button" (click)="queryPath()"><img src="../../assets/images/icon-arrow.svg"/></button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+        </div>
+    </div>
+    <div class="row justify-content-center name-or-dir-row" style="text-align:center; width:100vw;">
+        <span class="col-sm-3 parent-title">{{ name }}</span>
+    </div>
+    <div class="row result-row">
+        <div class="container-fluid headings-container">
+        <div class="row">
+            <div class="col-sm-2 result heading-name">Name</div>
+            <div class="col-sm-2 result heading-type">Type</div>
+            <div class="col-sm-2 result heading-ext">Extension</div>
+            <div class="col-sm-2 result heading-birth">Created At</div>
+            <div class="col-sm-2 result heading-perm">Permissions</div>
+            <div class="col-sm-2 result heading-size">Size</div>
+        </div>
+        <hr>
+        </div>
+    </div>
+    <div class="row  result-row position-relative mt-2" *ngFor="let child of children; index as i;">
+        <div class="container-fluid file-row" *ngIf="child.type == 'file'">
+            <div class="row">
+                <div class="col-sm-2 result result-name">{{child.name}}</div>
+                <div class="col-sm-2 result result-type">{{child.type}}</div>
+                <div class="col-sm-2 result result-ext">{{child.extension}}</div>
+                <div class="col-sm-2 result result-birth">{{child.birthtime}}</div>
+                <div class="col-sm-2 result result-perm">{{child.mode}}</div>
+                <div class="col-sm-2 result result-size">{{child.size}} B</div>
+            </div>
+        </div>
+        <div class="container-fluid directory-row" *ngIf="child.type == 'directory'" (click)="folderSelect(child.path)">
+            <div class="row">
+                <div class="col-sm-2 result result-name">{{child.name}}</div>
+                <div class="col-sm-2 result result-type">{{child.type}}</div>
+                <div class="col-sm-2 result result-ext">{{child.extension}}</div>
+                <div class="col-sm-2 result result-birth">{{child.birthtime}}</div>
+                <div class="col-sm-2 result result-perm">{{child.mode}}</div>
+                <div class="col-sm-2 result result-size">{{child.size}} B</div>
+            </div>
+        </div>
+    </div>
+</div>

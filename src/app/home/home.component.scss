@@ -1,0 +1,42 @@
+.jumbotron{
+    background-image: url('../../assets/images/pattern-bg.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+    width:100vw;
+}
+
+.app-title{
+    font-size: 25px;
+    font-weight: bolder;
+    color:white;
+}
+.parent-title{
+    font-size: 20px;
+    font-weight: bolder;
+    color: rgb(78, 78, 78);
+    width:100vw;
+}
+
+.result{
+    font-size:15px;
+    font-weight:bold;
+    color: rgb(78, 78, 78);
+}
+
+.result-row{
+    bottom:0px;
+    text-align:center;
+    width:100vw;
+}
+
+.directory-row{
+    background-color: rgb(226, 226, 226);
+}
+
+.directory-row:hover{
+    cursor:pointer;
+}
+
+.name-or-dir-row{
+    margin-bottom: 50px;
+}
